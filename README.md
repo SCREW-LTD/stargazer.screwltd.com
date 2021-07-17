@@ -1,2 +1,2 @@
-# STARGAZER-website
+# STARGAZER website
 STARGAZER website source!
