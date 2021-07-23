@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Slider Blog Card</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+</head>
+
+<body>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBzbMipvEE4_fPwPiDUFne-G2M8UkwA0iI",
+            authDomain: "stargazer-server-data.firebaseapp.com",
+            databaseURL: "https://stargazer-server-data-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "stargazer-server-data",
+            storageBucket: "stargazer-server-data.appspot.com",
+            messagingSenderId: "377636078000",
+            appId: "1:377636078000:web:06aa23befa594c0a931675"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        firebase.database().ref("Statistics/Rooms").on("value", (sanpshot) => {
+            document.getElementById("Rooms").innerHTML = "Total rooms created: " + sanpshot.val();
+        });
+        firebase.database().ref("Statistics/PlayersAll").on("value", (sanpshot) => {
+            document.getElementById("AllPlayers").innerHTML = "Total players: " + sanpshot.val();
+        });
+        firebase.database().ref("Statistics/MaxOnline").on("value", (sanpshot) => {
+            document.getElementById("MaxOnline").innerHTML = "Maximum players online: " + sanpshot.val();
+        });
+    </script>
+    <div class="blog-card">
+        <input type="radio" name="select" id="tap-1" checked>
+        <input type="radio" name="select" id="tap-2">
+        <input type="radio" name="select" id="tap-3">
+        <input type="checkbox" id="imgTap">
+        <div class="sliders">
+            <label for="tap-1" class="tap tap-1"></label>
+            <label for="tap-2" class="tap tap-2"></label>
+            <label for="tap-3" class="tap tap-3"></label>
+        </div>
+        <div class="inner-part">
+            <label class="img">
+                <img class="img-1" src="https://stargazer-game.com/images/logo_dark.png">
+            </label>
+            <div class="content content-1">
+                <span>STARGAZER</span>
+                <div id="Rooms" class="title">0</div>
+            </div>
+        </div>
+        <div class="inner-part">
+            <label class="img">
+                <img class="img-2" src="https://stargazer-game.com/images/logo_dark.png">
+            </label>
+            <div class="content content-2">
+                <span>STARGAZER</span>
+                <div id="AllPlayers" class="title">0</div>
+            </div>
+        </div>
+        <div class="inner-part">
+            <label class="img">
+                <img class="img-3" src="https://stargazer-game.com/images/logo_dark.png">
+            </label>
+            <div class="content content-3">
+                <span>STARGAZER</span>
+                <div id="MaxOnline" class="title">0</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
