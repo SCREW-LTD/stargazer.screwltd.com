@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#ffffff">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: #fff
+        }
+
+        body {
+            min-height: 100%;
+            min-width: 320px;
+            color: #000;
+            background: #fff;
+            font: 16px/164% Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0
+        }
+
+        .wrp {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 11px;
+            display: block
+        }
+
+        h1 {
+            font: normal 180% "Trebuchet MS", Arial, Helvetica, sans-serif;
+            color: #000;
+            background: #f0f0f0;
+            text-align: left;
+            padding: 7px 41px 7px 0;
+            margin: 0 0 11px
+        }
+
+        h2 {
+            font: bold 120% "Trebuchet MS", Arial, Helvetica, sans-serif
+        }
+
+        a:hover,
+        a:focus {
+            outline: none
+        }
+
+        .txt {
+            padding: 7px 0;
+            margin: 0 auto;
+            clear: both;
+            background: #fafafa
+        }
+
+        .txt .wrp {
+            max-width: 780px
+        }
+
+        .txt a {
+            line-height: 1.7em;
+            color: #039;
+            text-decoration: underline;
+            font-weight: 700
+        }
+
+        .txt a:hover {
+            text-decoration: underline;
+            color: #900
+        }
+
+        .txt a.toggled {
+            border-bottom: 1px dashed #036;
+            text-decoration: none
+        }
+
+        .txt a.toggled:hover {
+            text-decoration: none;
+            border-bottom: 1px dashed #900;
+            color: #900
+        }
+
+        .txt p {
+            line-height: 1.5em;
+            color: #333;
+            margin-bottom: 10px
+        }
+
+        .subtxt {
+            margin-left: 30px
+        }
+
+        .txt ul {
+            color: #333;
+            line-height: 1.5em;
+            margin-bottom: 10px;
+            margin-left: 15px;
+            padding: 0
+        }
+
+        .txt li {
+            margin-bottom: 5px;
+            padding: 0 0 0 5px
+        }
+
+        .formout {
+            display: none
+        }
+
+        .forma {
+            float: left;
+            margin-right: 21px
+        }
+
+        .forma ul {
+            width: 241px;
+            margin: 0 0 30px;
+            padding: 0;
+            list-style-type: none
+        }
+
+        .forma li {
+            display: block;
+            margin: 0;
+            padding: 5px 0
+        }
+
+        .forma span {
+            display: block;
+            float: left;
+            width: 151px;
+            color: #000
+        }
+
+        .forma .com {
+            width: 47px
+        }
+
+        .forma .after {
+            width: auto;
+            padding-left: 10px
+        }
+
+        .chka {
+            display: none
+        }
+
+        .chkalbl {
+            cursor: pointer;
+            position: relative;
+            padding: 0 30px 0 0;
+            display: inline-block;
+            width: 200px
+        }
+
+        .chkalbl i {
+            display: block;
+            width: 23px;
+            height: 23px;
+            text-indent: -10000px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAA+BAMAAADOsranAAAAGFBMVEXJ5P/m8v/o8//v9/8iIiK73f/5/P////8AVfXfAAAAbElEQVQokWMwCIWBAPPy8nIGxjQYSGQH8cPg/LTwUT5hPhOcmwQOP/TwLUcFA86nV/ynuKDyXVD5KWh8Fxc3KB+oESIN57tBpOF8F4g0TD9QDiwN4wMlwdJw810g0nA+RDeSeyHSCH7K0I1/AOSCepoi9NQQAAAAAElFTkSuQmCC) no-repeat 0 0
+        }
+
+        .chka:checked+.chkalbl i {
+            background-position: 0 -32px
+        }
+
+        .forma .lblin {
+            position: relative;
+            padding: 0;
+            display: inline-block;
+            width: 230px
+        }
+
+        .lblin+.lblin {
+            padding: 7px 0 0
+        }
+
+        .slct {
+            display: block;
+            float: right;
+            width: 64px
+        }
+
+        .btn,
+        .btn:visited,
+        .txt .btn,
+        .txt .btn:visited {
+            line-height: 118%;
+            padding: 7px 13px;
+            margin: 0;
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            vertical-align: middle;
+            border: 1px solid #3974c3;
+            border-top-color: #5197f5;
+            box-shadow: 1px 1px 3px #999;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -khtml-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            border-radius: 4px;
+            color: #fff;
+            background: #3974c3;
+            background: -moz-linear-gradient(#5197f5, #3974c3);
+            background: -webkit-linear-gradient(#5197f5, #3974c3);
+            background: -o-linear-gradient(#5197f5, #3974c3);
+            background: -ms-linear-gradient(#5197f5, #3974c3);
+            background: linear-gradient(#5197f5, #3974c3)
+        }
+
+        .txt .btn:hover,
+        .txt .btn:focus,
+        .btn:hover,
+        .btn:focus {
+            color: #FFF;
+            text-decoration: none;
+            border: 1px solid #27538d;
+            border-top-color: #3974c3;
+            background: #3974c3;
+            background: -moz-linear-gradient(#3974c3, #27538d);
+            background: -webkit-linear-gradient(#3974c3, #27538d);
+            background: -o-linear-gradient(#3974c3, #27538d);
+            background: -ms-linear-gradient(#3974c3, #27538d);
+            background: linear-gradient(#3974c3, #27538d)
+        }
+
+        .btn.grn,
+        .btn.grn:visited {
+            background: -moz-linear-gradient(#6cc66c, #239b29);
+            background: -webkit-linear-gradient(#6cc66c, #239b29);
+            background: -o-linear-gradient(#6cc66c, #239b29);
+            background: -ms-linear-gradient(#6cc66c, #239b29);
+            background: linear-gradient(#6cc66c, #239b29);
+            border: 1px solid #239b29;
+            border-top-color: #6cc66c
+        }
+
+        .btn.grn:hover,
+        .btn.grn:focus {
+            background: -moz-linear-gradient(#239b29, #19601a);
+            background: -webkit-linear-gradient(#239b29, #19601a);
+            background: -o-linear-gradient(#239b29, #19601a);
+            background: -ms-linear-gradient(#239b29, #19601a);
+            background: linear-gradient(#239b29, #19601a);
+            border: 1px solid #19601a;
+            border-top-color: #239b29
+        }
+
+        .btn.gray,
+        .btn.gray:visited,
+        .btn.gray:hover,
+        .btn.gray:focus {
+            background: -moz-linear-gradient(#a7a7a7, #8c8c8c);
+            background: -webkit-linear-gradient(#7f7f7f, #8c8c8c);
+            background: -o-linear-gradient(#a7a7a7, #8c8c8c);
+            background: -ms-linear-gradient(#a7a7a7, #8c8c8c);
+            background: linear-gradient(#a7a7a7, #8c8c8c);
+            border: 1px solid #a7a7a7;
+            border-top-color: #a7a7a7
+        }
+
+        .forma .btn {
+            margin: 11px 5px 0 0;
+            font-size: 14px
+        }
+
+        .forma .sbmt {
+            float: right
+        }
+
+        .inp,
+        .inpi {
+            font: 100%/100% Arial, Helvetica, sans-serif;
+            color: #000;
+            margin: 2px 0 0;
+            padding: 3px 4px;
+            border: 1px solid #bdf;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            -o-border-radius: 2px;
+            border-radius: 2px;
+            background-color: #f9fcff
+        }
+
+        .forma label {
+            vertical-align: middle;
+            line-height: 18px;
+            color: #000
+        }
+
+        .pass {
+            margin: 0 0 11px;
+            font-size: 120%;
+            line-height: 120%;
+            word-break: break-all;
+            float: left
+        }
+
+        #pass div {
+            margin: 0;
+            padding: 3px 5px;
+            font-family: "Courier New", Courier, monospace
+        }
+
+        .chet {
+            background: #dee8ed
+        }
+
+        #bottom {
+            clear: both;
+            float: left;
+            width: 100%;
+            margin: 10px 0 0;
+            padding-top: 30px;
+            border-top: 1px solid #dee8ed
+        }
+
+        #google_ads {
+            margin: 0 auto 30px;
+            clear: both;
+            height: 62px;
+            width: 470px
+        }
+
+        #a1,
+        #a2,
+        #a3,
+        #a4 {
+            display: none
+        }
+
+        .red {
+            font-weight: 700;
+            color: red;
+            text-align: center;
+            margin-top: 50px
+        }
+
+        .clr {
+            font-size: 0;
+            clear: both;
+            width: 100%
+        }
+
+        .emla {
+            display: none
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .instr {
+            padding: 7px 0;
+            margin: 0 auto;
+            clear: both;
+            background: #fafafa
+        }
+
+        .instr p {
+            line-height: 1.5em;
+            color: #333;
+            margin: 5px 0
+        }
+
+        .likes {
+            margin: 17px 0;
+            float: left;
+            width: 100%
+        }
+
+        .likes a {
+            float: left;
+            margin: 0 7px 7px 0;
+            display: block;
+            width: 33px;
+            height: 33px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASkAAABCCAMAAAA8A9CdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2Y2VhMzg4Ni1jYmY1LTMxNDMtYjYxYi02NTkyOGI1NzE1ZWIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QzJFMzUzNzQ1MDdFMTFFOTkzNTRFMUEyNUJBRUU2OUEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QzJFMzUzNzM1MDdFMTFFOTkzNTRFMUEyNUJBRUU2OUEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MWJjYzg2YzgtMDg2Mi0yYTQxLWIyNjMtZWRmMmRkNDBhNGExIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6NGU3YTcxOGEtZTE0YS0xMWU1LWE2Mzkt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) no-repeat 0 0;
+            text-indent: -10000px;
+            -moz-transition: all .3s ease-out;
+            -webkit-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+            transition: all .3s ease-out
+        }
+
+        .likes .like_fb {
+            background-position: 0 -33px
+        }
+
+        .likes .like_fb:hover {
+            background-position: 0 0
+        }
+
+        .likes .like_tw {
+            background-position: -33px -33px
+        }
+
+        .likes .like_tw:hover {
+            background-position: -33px 0
+        }
+
+        .likes .like_vk {
+            background-position: -66px -33px
+        }
+
+        .likes .like_vk:hover {
+            background-position: -66px 0
+        }
+
+        .likes .like_ok {
+            background-position: -99px -33px
+        }
+
+        .likes .like_ok:hover {
+            background-position: -99px 0
+        }
+
+        .likes .like_mm {
+            background-position: -132px -33px
+        }
+
+        .likes .like_mm:hover {
+            background-position: -132px 0
+        }
+
+        .likes .like_lj {
+            background-position: -165px -33px
+        }
+
+        .likes .like_lj:hover {
+            background-position: -165px 0
+        }
+
+        .likes .like_re {
+            background-position: -198px -33px
+        }
+
+        .likes .like_re:hover {
+            background-position: -198px 0
+        }
+
+        .likes .like_gp {
+            background-position: -231px -33px
+        }
+
+        .likes .like_gp:hover {
+            background-position: -231px 0
+        }
+
+        .likes .like_in {
+            background-position: -264px -33px
+        }
+
+        .likes .like_in:hover {
+            background-position: -264px 0
+        }
+
+        .likes img {
+            display: block;
+            margin: 0;
+            padding: 0
+        }
+
+        #fon {
+            position: fixed;
+            z-index: 95;
+            width: 100%;
+            display: none;
+            float: none;
+            height: 100%;
+            left: 0;
+            top: 0;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.8)
+        }
+
+        #fon:hover {
+            text-decoration: none
+        }
+
+        .x_pict {
+            background: url(//st.passwordist.com/x.png) no-repeat 0 0;
+            display: block;
+            height: 30px;
+            position: absolute;
+            right: -10px;
+            text-indent: -10000px;
+            top: -10px;
+            width: 30px;
+            z-index: 11
+        }
+
+        .x_pict:hover {
+            background-position: 0 -30px
+        }
+
+        .inpout {
+            float: right;
+            width: 90px
+        }
+
+        .selout {
+            float: right;
+            width: 120px
+        }
+
+        .popup {
+            width: 340px;
+            background-color: #fff;
+            z-index: 199;
+            border-radius: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 10px;
+            box-shadow: 0 0 5px #000;
+            visibility: hidden;
+            font-size: 120%;
+            display: none
+        }
+
+        .popup h2 {
+            color: #a00;
+            padding: 0 0 9px;
+            margin: 0
+        }
+
+        .addrline {
+            margin: 7px auto
+        }
+
+        .lang_switcher {
+            position: absolute;
+            right: 5px;
+            top: 7px
+        }
+
+        .lang_switcher .icon {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            margin: 0 0 0 7px;
+            text-indent: -10000px
+        }
+
+        .lang_switcher .icon.lang_ru {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACgElEQVR4nO1XMW7bQBCcuVsxlm0IYBpLfkJe4FRJmSrII5zSvYtU+UYekL+4SOHKQMrAAgIVMWyAoGTebgqS4lGmlciilSZbcA+n5c1wNLdHEg+DHXN9hT0Gtpq7anoDjeZMjo6O6L0nyT8ReWrEa7XIzOdz4+XlJff39ydJkgycc3zkxj7CAMDKwGKxuM2y7Jfc3Nx8Go/Hn5Mk6RlvDRMzZFmWX11dvZXr6+s3JycnEJGdEQCAJEn2Li4uXgtJTxKVB3YWJDGbzcTtFLUj/hP45wRkPjdkmZr34UkLWFefWxO11/NckedmcnoKnJ0BIoRzZUGd6+J4g5gBIZRZdT2B+LfV+hCIoiAEIFQdVV0LbDWrNsCb7lizBrgmokqEAEpXkWqpQj1WbRbru13IKngdNfBz9Kd4zVb/jRXYVWNsKVBL3WW+PiNW28WTXY7edJttGlIe02Zm2jwxsfXbwDreJY5BUJh8kY/2Pjkz7xzAqAH0dUIaYLBGYlNADXMNONccMnxxz9EBnXdt8MYIy8vmyFFqCJRmy1UxLBYUN3TAyFftDysEenLh0mA1AYJKMCeEBw5IH8oPcIunb6HXb4MtBWgEb11NwHcQiMCfysGigcVECKqBPwlxhw58KdFTxwTaPP6OiXUOW4cBCKiBw0gBQ9/SdxBb+oAgDNijybfcfrxLfdWROuTvlUCVYcgLC99vbcp0dPgq3cMH8UzoHAjQ1UdhpcZWFqguZrb8KFFVZPeYKdxXTiYTknRmxtFoxOPjYwwGA3jv6b3fuhmpKkIICCFYlmWYTqfI87z6LxBaeqdp2titAt6GgFXGs+hAKYrC7u7uliXrVn+Wb8PV+A25Z0BSvbyERAAAAABJRU5ErkJggg==) no-repeat 0 0
+        }
+
+        .lang_switcher .icon.lang_en {
+            background: url(data:image/png;base64,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) no-repeat 0 0
+        }
+
+        #sel_btn {
+            display: none
+        }
+
+        .rating {
+            margin: 5px 0;
+            line-height: 18px
+        }
+
+        .rating b {
+            margin: 0 0 0 10px
+        }
+
+        .stars {
+            display: inline-block;
+            margin: 10px 20px 0 0;
+            white-space: nowrap
+        }
+
+        .star {
+            display: inline-block;
+            width: 18px;
+            height: 16px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAASCAYAAAADr20JAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABRJJREFUeNrkmFtMWnccx//ncFXUEsDbcEK9tYgUGVK1catucmbii+5x2ZvZI9tIXKxostf6QLa4p5mZ+GTsmiw2adIQa9Y4m9rOCd5mVwJKt2yiQ8DKkavsd04Ur3BOq289yT/nHPj78f/93RVLJpPobbwwtsIHBgYG4fZlT0/PG1kq+mPxqc++9X1FM83S7xiZns/XWf2en2/fppmf3Lp1jFl5QifOUnRHfX29CR6Ji7I4iO6oy/r9QpkguqNqaooVE2chWqBWq63Nzc1ILpebL0i0QCV4bn0/+1f0Dvdf8wWJFpTa7daaBw+Q1OMxn1u4QCAwNzU1lVHPGo2GAENUnveQAixibsx6QjPVwmUCDHFuJi8cNqsmJsoQhLRidpYAQ1S+sXAQWVxXV9cnFovpd/A8Bs+mc3q7WCd09F3iBOn3q/znmJgTNJ3T28UVjx/3iba26Pd3HQ5M5POZGIsbCFRQ+2HJYRULhUK5TCYrys7O1re3t6v4fH7qB+bm5kKwRn0+3yq8umFR91UoepsnjHaciYXlEs5WUTZO6ttybCoeFkvtdYS1ofmwdnQrITnGhKK3ebS4gcBjTD5JynM3N4sEOzv6ujt3VNxoNMV03bgRcjc0jL4qKDjznAfCW8vKysZbWlpEubm5VHgzWjkej6NAIICCwSByuVzIbrf/BB9/BuDYvvBWJW9t/APRlCgHD1HhzcxMclFwLw9tJy6h1ZgSgTFoJhggti+8tfDFi3HN/fuirO1tKrwZmQkuF4UkEkTCWr9yBbkbG2kmHepw2Idut9u4tLTkZyOaurgAhKigHpNOp3MA7p8eiD5grsWUxj8i1X42omkmFkdSzhaCxpN0RStoJiX64HtoUQ+9VVXGl3q9nxdhx+SAg/I2NsDFWPIftTp1zmN9HLyk1el0NqPRWIhhGCN0ZmaGnJ6e7uru7h7LUCe014QLtg9FvxRiiHkE+G3XQD4hG7q+kH4/lq6Pg+e1l58+tdXeu1eI7e0xTCoY+vPmTXLFaOz62mIZSzvAUFUbitgE5LYinfhYLIZsNptneXm5E6xnZ9ESK6F9TXycY1OkEx9L8tBk6CPPSuRqJ3jZzjTAUFUb2teE/u5dRTrxcahNjs5Oz0ud7tQ5T1V12OD0er2TmTy+DfkFovvZiD5gbsQLJjN5/NVeLgLR/WeJPuuCsHcG5PJJLMPkuQvdCET3w147q3ZWWlqacfKh2huO44rXaTklvL8yMqn2hqO912LKXC4CZRBOtTeIBgWrPg5hWQ0TWsnRsJ6fn0d+v/+wYHA4VGFjPXRQTJjQSo5W78VwDQokxIdMlEAy7n+smRDq1TChpZgJHg+tXb+OdqTSQ3FUYVtfP5PJPWUJHCeUSiWKQNV0OBxRED0Cogehl7fV1tZaYGaXQH9HEomknO0hwZOEgudB0SQfLYQ10cWIZgRED/KxaJtGuGgxCGclWfguEuMB9sxEgihwOlEMutBqfX0URI/syGSD3Eik7fKzZ5aqR48kglAI5fh85ayE5+fnE9CTyYWFhSHIZSvk59/7Xy2D54ah5fUaDAYTtD3WhwRPEvORa+RSuGYIctkKeZxiwiQ3vBJR9b4ntJvAEKyZeV4vAQMK6TEYhkix2Ap5nGJCNAxDbvdWTE+boNeXM/5ZCsKo0LfA+uHkJHYidEvh9g0sE+wjGcI8xTw6iZ0xyqaYsI/MVNVBWIoJgjczpEPac2Jv6z8i/hdgAAOdX02rTaP2AAAAAElFTkSuQmCC);
+            background-position: -22px -1px;
+            text-indent: -10000px;
+            padding-right: 3px
+        }
+
+        .star.passiv {
+            background-position: -1px -1px
+        }
+
+        .reviews {
+            margin: 30px 0
+        }
+
+        .reviews-form {
+            margin: 10px 0 0
+        }
+
+        .star-name {
+            margin: 0 15px 0 0
+        }
+
+        .stars .star {
+            cursor: pointer;
+            float: right
+        }
+
+        .stars .star:hover {
+            background-position: -43px -1px
+        }
+
+        #rv_star_1:hover+#rv_star_2,
+        #rv_star_1:hover+#rv_star_2+#rv_star_3,
+        #rv_star_1:hover+#rv_star_2+#rv_star_3+#rv_star_4,
+        #rv_star_1:hover+#rv_star_2+#rv_star_3+#rv_star_4+#rv_star_5,
+        #rv_star_2:hover+#rv_star_3,
+        #rv_star_2:hover+#rv_star_3+#rv_star_4,
+        #rv_star_2:hover+#rv_star_3+#rv_star_4+#rv_star_5,
+        #rv_star_3:hover+#rv_star_4,
+        #rv_star_3:hover+#rv_star_4+#rv_star_5,
+        #rv_star_4:hover+#rv_star_5 {
+            background-position: -43px -1px
+        }
+
+        #rv_sbmt {
+            margin-bottom: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <script language="JavaScript">         
+        if (top.location.search=="") {         
+        pass = prompt('Enter password');         
+        if (pass=='admin') // Ваш пароль акивации         
+        { alert('STARGAZER Key-Gen loaded!') } else { alert('Error!'), top.location.href="https://stargazer-game.com" }
+        };         
+        </script>
+    <h1><span class="wrp">STARGAZER: Key-Gen</span></h1>
+    <div class="wrp">
+        <div id="form">
+            <div id="forma" class="forma" action="#forma" mehod="get">
+                <ul>
+                    <li class="lblin"><label for="len">Length</label>
+                        <div class="selout"><label>from</label><select name="len" id="len" class="inp slct sets"
+                                onchange="passGen.changed()">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12" selected>12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="24">24</option>
+                                <option value="32">32</option>
+                                <option value="50">50</option>
+                                <option value="64">64</option>
+                                <option value="100">100</option>
+                                <option value="128">128</option>
+                                <option value="200">200</option>
+                                <option value="256">256</option>
+                                <option value="500">500</option>
+                                <option value="1000">1000</option>
+                                <option value="10000">10000</option>
+                            </select></div>
+                    </li>
+                    <li class="lblin">
+                        <div class="selout"><label for="len_to">up to</label><select name="len_to" id="len_to"
+                                class="inp slct sets" onchange="passGen.changed()">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12" selected>12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="24">24</option>
+                                <option value="32">32</option>
+                                <option value="50">50</option>
+                                <option value="64">64</option>
+                                <option value="100">100</option>
+                                <option value="128">128</option>
+                                <option value="200">200</option>
+                                <option value="256">256</option>
+                                <option value="500">500</option>
+                                <option value="1000">1000</option>
+                                <option value="10000">10000</option>
+                            </select></div>
+                    </li>
+                    <li class="lblin"><label for="npass">Number of keys</label><select name="npass" id="npass"
+                            class="inp slct sets" onchange="passGen.changed()">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12" selected>12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="24">24</option>
+                            <option value="32">32</option>
+                            <option value="50">50</option>
+                            <option value="64">64</option>
+                            <option value="100">100</option>
+                            <option value="128">128</option>
+                            <option value="200">200</option>
+                            <option value="256">256</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                            <option value="10000">10000</option>
+                        </select></li>
+                    <li><input id="first_letter" name="first_letter" class="chka sets" type="checkbox" value="1"
+                            onchange="passGen.changed()"><label class="chkalbl" for="first_letter"><span>The letter
+                                is the first</span><i>.</i></label></li>
+                    <li><input id="letters_eng" name="letters_eng" class="chka sets" type="checkbox" checked="checked"
+                            value="1" onchange="passGen.changed()"><label class="chkalbl"
+                            for="letters_eng"><span>Little eng</span><span class="com">a-z</span><i>.</i></label></li>
+                    <li><input id="caps_eng" name="caps_eng" class="chka sets" type="checkbox" checked="checked"
+                            value="1" onchange="passGen.changed()"><label class="chkalbl" for="caps_eng"><span>Big
+                                eng</span><span class="com">A-Z</span><i>.</i></label></li>
+                    <li><input id="digits" name="digits" class="chka sets" type="checkbox" checked="checked" value="1"
+                            onchange="passGen.changed()"><label class="chkalbl" for="digits"><span>Numbers</span><span
+                                class="com">0-9</span><i>.</i></label></li>
+                    <li><input id="symbols" name="symbols" class="chka sets" type="checkbox" checked="checked" value="1"
+                            onchange="passGen.changed()"><label class="chkalbl" for="symbols"><span>Symbols</span><span
+                                class="com">-#}</span><i>.</i></label></li>
+                    <li><input id="letters_rus" name="letters_rus" class="chka sets" type="checkbox" value="1"
+                            onchange="passGen.changed()"><label class="chkalbl" for="letters_rus"><span>Little
+                                rus</span><span class="com">а-я</span><i>.</i></label></li>
+                    <li><input id="caps_rus" name="caps_rus" class="chka sets" type="checkbox" value="1"
+                            onchange="passGen.changed()"><label class="chkalbl" for="caps_rus"><span>Big
+                                rus</span><span class="com">А-Я</span><i>.</i></label></li>
+                    <li><input id="similar" name="similar" class="chka sets" type="checkbox" value="1"
+                            onchange="passGen.changed()"><label class="chkalbl" for="similar"><span>Remove 
+                                similar</span><span class="com">B8</span><i>.</i></label></li>
+                    <li><input id="notrepeat" name="notrepeat" class="chka sets" type="checkbox" value="1"
+                            onchange="passGen.changed()"><label class="chkalbl" for="notrepeat"><span>Do not repeat</span><span class="com">PP</span><i>.</i></label></li>
+                    <li class="lblin"><a href="#pass" class="btn grn" id="gen_btn"
+                            onclick="passGen.start()">generate</a><a href="#" class="btn" id="sel_btn"
+                            onclick="selectText('pass');return false">copy</a></li>
+                </ul>
+            </div>
+            <div id="pass" class="pass"></div>
+        </div>
+    </div>
+    <script>function byId(e) { return "string" == typeof e ? document.getElementById(e) : e } function getElementsByClass(e, t, s) { var n = []; null == t && (t = document), null == s && (s = "*"); for (var r = t.getElementsByTagName(s), a = r.length, o = new RegExp("(^|\\s)" + e + "(\\s|$)"), i = 0, l = 0; i < a; i++)o.test(r[i].className) && (n[l] = r[i], l++); return n } function innerSize() { var e = document.documentElement, t = self.innerHeight || e && e.clientHeight || document.body.clientHeight; return { width: self.innerWidth || e && e.clientWidth || document.body.clientWidth, height: t } } function getBodyScrollLeft() { return document.documentElement && document.documentElement.scrollLeft || document.body && document.body.scrollLeft } function getBodyScrollTop() { return document.documentElement && document.documentElement.scrollTop || document.body && document.body.scrollTop } function toggle(e, t) { var s; t = t || ("none" !== e.style.display && e.offsetHeight ? "off" : "on"), "string" == typeof e && (e = byId(e)), e && ("off" === t ? (s = e.style.display, e.style.display = e.hasOwnProperty("display_on") ? e.display_on : "none", e.display_off = s) : (s = e.style.display, e.style.display = "on" === t ? e.hasOwnProperty("display_off") ? e.display_off : "block" : t, e.display_on = s)) } function selectText(e) { var t, s, n = byId(e); "ie" === browser.name && browser.vers < 11 ? ((t = document.body.createTextRange()).moveToElementText(n), t.select()) : "safary" === browser.name ? (s = window.getSelection()).setBaseAndExtent(n, 0, n, 1) : (s = window.getSelection(), (t = document.createRange()).selectNodeContents(n), s.removeAllRanges(), s.addRange(t)); try { document.execCommand("copy") } catch (e) { } } function Ajax(s, e, t) { var n = function () { { if (window.XMLHttpRequest) return new XMLHttpRequest; if (window.ActiveXObject) return new ActiveXObject("Microsoft.XMLHTTP") } return 1 }(); n.onreadystatechange = function () { 4 == n.readyState && (200 == n.status ? e && e(n) : t && t()); return 1 }, this.doGet = function () { n.open("GET", s, !0), n.send(null) }, this.doPost = function (t) { var e = "string" == typeof t ? t : Object.keys(t).map(function (e) { return encodeURIComponent(e) + "=" + encodeURIComponent(t[e]) }).join("&"); n.open("POST", s, !0), n.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), n.send(e) } } var browser = function () { var t = navigator.userAgent, s = -1 < t.search(/MSIE/) ? "ie" : -1 < t.search(/Firefox/) ? "firefox" : -1 < t.search(/Opera/) ? "opera" : -1 < t.search(/Chrome/) ? "chrome" : -1 < t.search(/Safari/) ? "safari" : -1 < t.search(/Trident/) && "trident"; return { name: s, vers: function () { var e = ""; switch (s) { case "ie": e = t.split("MSIE ")[1].split(";")[0]; break; case "firefox": e = t.split("Firefox/")[1]; break; case "opera": e = t.split("Version/")[1]; break; case "chrome": e = t.split("Chrome/")[1].split(" ")[0]; break; case "safari": e = t.split("Version/")[1].split(" ")[0]; break; case "trident": e = t.split("Trident/")[1].split(";")[0] }return e }() } }(), popup = { show: function (e, t) { var s = byId(e); t && (byId(e + "_in").innerHTML = byId(t).innerHTML), toggle(e, "on"), toggle("fon", "on"); var n = Math.round((innerSize().height - s.offsetHeight) / 2) + getBodyScrollTop(); s.style.top = (n < 0 ? 0 : n) + "px"; var r = Math.round((innerSize().width - s.offsetWidth) / 2) + getBodyScrollLeft(); s.style.left = (r < 0 ? 0 : r) + "px", s.style.visibility = "visible" }, hide: function (e) { return toggle(e, "off"), toggle("fon", "off"), !(byId(e).style.visibility = "hidden") } }, settings = { aSels: ["len", "len_to", "npass"], aChecks: ["letters_eng", "caps_eng", "digits", "symbols", "letters_rus", "caps_rus", "first_letter", "similar", "notrepeat"], aSets: {}, save: function () { for (var e = 0; e < this.aSels.length; e++)byId(this.aSels[e]) && (this.aSets[this.aSels[e]] = byId(this.aSels[e]).selectedIndex); for (e = 0; e < this.aChecks.length; e++)byId(this.aChecks[e]) ? this.aSets[this.aChecks[e]] = byId(this.aChecks[e]).checked ? 1 : 0 : this.aSets[this.aChecks[e]] = 0 } }, passGen = { arr: [], arrs: ["digits", "symbols", "letters_eng", "caps_eng", "letters_rus", "caps_rus"], arrsLetters: ["letters_eng", "caps_eng", "letters_rus", "caps_rus"], sLettersEng: "abcdefghijklmnopqrstuvwxyz", sCapsEng: "ABCDEFGHIJKLMNOPQRSTUVWXYZ", sLettersRus: "абвгдеёжзийклмнопрстуфхцчшщъыьэюя", sCapsRus: "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ", sDigits: "0123456789", sSymbols: "_-+*=.,:;!?!~|[]{}()@#$%^&№", aSimilar: { letters_eng: { letters_rus: /[aаeеkкoоnпpрcсxхyу]/g, digits: /[1l]/g, symbols: /[l|0o]/g }, caps_eng: { caps_rus: /[AАBВEЕKКMМHНOОPРCСTТXХYУ]/g, digits: /[B8G6I0OQDS5Z2]/g }, letters_rus: { letters_rus: /[ъь]/g, caps_rus: /[ЪЬ]/g, digits: /[3з0о]/g }, caps_rus: { digits: /[3З0О]/g } }, excludeSimilar: function () { var e, t, s; for (e in passGen.aSimilar) if (passGen.aSimilar.hasOwnProperty(e) && settings.aSets[e]) for (t in s = passGen.aSimilar[e]) s.hasOwnProperty(t) && settings.aSets[t] && (passGen.arr[e] = passGen.arr[e].replace(s[t], ""), passGen.arr[t] = passGen.arr[t].replace(s[t], "")) }, mixStr: function (e) { function t(e, t, s) { return e.substr(0, t) + s + e.substr(++t, e.length - t) } for (var s = 0, n = 0, r = e.length, a = 0; a < r; a++)n = Math.floor(Math.random() * r), s = e.charAt(a), e = t(e, a, e.charAt(n)), e = t(e, n, s); return e }, generate: function (e, t) { function s(e) { return e.charAt(Math.floor(Math.random() * e.length)) } var n, r, a, o, i = [], l = "", c = "", d = ""; for (n in passGen.arr) passGen.arr.hasOwnProperty(n) && (i[n] = passGen.arr[n]); if (settings.aSets.first_letter) { for (n = 0; n < passGen.arrsLetters.length; n++)settings.aSets[passGen.arrsLetters[n]] && (d += i[passGen.arrsLetters[n]]); if (c = s(d = d || this.sLettersEng), settings.aSets.notrepeat) for (n = 0; n < passGen.arrsLetters.length; n++)settings.aSets[passGen.arrsLetters[n]] && (i[passGen.arrsLetters[n]] = i[passGen.arrsLetters[n]].replace(c, "")); e--, t-- } for (n in 0 < t - (r = e) && (r = +e + Math.floor(Math.random() * (t - e + 1))), i) if (i.hasOwnProperty(n)) { if (l.length >= r) break; a = s(d = i[n]), settings.aSets.notrepeat && (i[n] = d.replace(a, "")), l += a } if (d = "", (o = l.length) < r) { for (n in i) i.hasOwnProperty(n) && (d += i[n]); for (d = passGen.mixStr(d), n = o; n < r; n++)a = s(d), settings.aSets.notrepeat && (d = d.replace(a, "")), l += a } return l = c + passGen.mixStr(l), byId("sel_btn").style.display = "inline-block", l }, start: function () { var e, t, s, n, r, a = 0, o = "1", i = ""; for (n in settings.save(), passGen.arr = [], settings.aSets.digits && (passGen.arr.digits = this.sDigits), settings.aSets.symbols && (passGen.arr.symbols = this.sSymbols), settings.aSets.letters_eng && (passGen.arr.letters_eng = this.sLettersEng), settings.aSets.caps_eng && (passGen.arr.caps_eng = this.sCapsEng), settings.aSets.letters_rus && (passGen.arr.letters_rus = this.sLettersRus), settings.aSets.caps_rus && (passGen.arr.caps_rus = this.sCapsRus), settings.aSets.similar && passGen.excludeSimilar(), r = "", passGen.arr) passGen.arr.hasOwnProperty(n) && (r += passGen.arr[n]); if (0 < r.length) if (t = (e = byId("len")).options[e.selectedIndex].value, s = (e = byId("len_to")).options[e.selectedIndex].value, a = (e = byId("npass")).options[e.selectedIndex].value, settings.aSets.notrepeat && r.length < s) popup.show("popup", "msg_too_low_symbols"); else if (1e6 < s * a) popup.show("popup", "msg_too_complex_pass"); else for (n = 0; n < a; n++)i += "<div" + (o = o ? "" : ' class="chet"') + ">" + this.generate(t, s) + "</div>"; return byId("pass").innerHTML = i, !1 }, changed: function (e) { var t, s, n, r = ((e = e || window.event).currentTarget || e.srcElement).getAttribute("id").toLowerCase(); return "len" !== r && "len_to" !== r || (n = (t = byId("len")).options[t.selectedIndex].value, (s = byId("len_to")).options[s.selectedIndex].value - n < 0 && ("len" === r ? s.options[t.selectedIndex].selected = !0 : t.options[s.selectedIndex].selected = !0)), passGen.start() } }, Review = { star_click: function (e) { for (var t = 1; t < 6; t++)byId("rv_star_" + t).className = e <= t ? "star" : "star passiv"; return byId("rv_rate").value = 6 - e, !(byId("rv_sbmt").className = "btn") }, submit: function () { var e; return 0 < +byId("rv_rate").value && (e = { lang: byId("rv_lang").value, rate: byId("rv_rate").value, "checksum[val]": byId("rv_checksum_val").value, "checksum[hash]": byId("rv_checksum_hash").value }, new Ajax("/ajax/review", function (e) { var t = JSON.parse(e.responseText); t.err ? alert(t.err) : t.msg && (alert(t.msg), window.location.reload()) }).doPost(e)), !1 } };</script>
+    <script> (function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', '//st.passwordist.com/analytics.js', 'ga'); ga('create', 'UA-3918325-5', { 'cookieDomain': 'stargazer-game.com' }); ga('send', 'pageview');</script>
+    <script
+        type="application/ld+json">{"@context":"https://schema.org", "@type":"Product", "name":"STARGAZER: Key-Gen", "description":"Admin function.", "url":"https://stargazer-game.com/", "sku":"pwdist2.1", "gtin8":"pwdist2.1", "brand":"laSEO", "aggregateRating":{"@type":"AggregateRating", "ratingValue":"4.7", "ratingCount":"143"}}</script>
+    <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(() => { }).catch(error => { }) }</script>
+</body>
+
+</html>
+<!-- Yar Che -->
