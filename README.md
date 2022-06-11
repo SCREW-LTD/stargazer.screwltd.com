@@ -1,2 +1,2 @@
-# stargazer-game.com
+# stargazer.screwltd.com
 STARGAZER website source!
